@@ -9,6 +9,11 @@ public class Haromszog {
         int oldala=3;
         int oldalb=4;
         int oldalc=5;
+        
+        if(!pozszam(oldalc, oldalb, oldalc)){
+            throw new IllegalArgumentException("hibas");
+        }
+        
         int k = ker(oldalc, oldalb, oldalc);
         double t= ter(oldala, oldalb, oldalc);
         String adat="A %d,%d,%d oldalú háromszög".formatted(oldala,oldalb,oldalc);
@@ -24,7 +29,7 @@ public class Haromszog {
         double terulet= Math.sqrt(s*(s-a)*(s-b)*(s-c));
         return terulet;
     }
-    public static double tersimp(int mag, int oldal){
+    public static double ter(double mag, int oldal){
         double s = mag*oldal/2;
         return s;
     }
@@ -39,7 +44,15 @@ public class Haromszog {
             System.err.println("nem sikerült a fileba íras");
             System.err.println("hiba oka"+ex.getMessage());
         }
-     
+    }
+    static boolean pozszam(int a, int b, int c){
+        return a>0&&b>0&&c>0;
+    }
+    static boolean pozegyszam(double szam){
+        return szam>0;
+    }
+    static boolean letezo(int a, int b, int c){
+        return a+b>c||a+c>b||c+b>a;
     }
     
 }
