@@ -41,14 +41,17 @@ public class SzemelyStatisztika {
     static boolean nevell(String nevf){
        return nevf.length()>2&& !nevf.contains("#");
     }
+    static void tanarpelda(String nev){
+        tanarpelda(nev, false);
+    }
     static void tanarpelda(String nev,boolean keveres){
-        String[]koszonesek={"hali","hallo","szia"};
+        String[]koszonesek={"hoi","hali","hallo","szia"};
+        int i =0;
         if(keveres){
-        int i =(int)(Math.random()*koszonesek.length);
-            System.out.println("i = "+i);
-        }else{
-            System.out.println("szia "+nev+"!");
+        i =(int)(Math.random()*koszonesek.length);
+            System.out.println(koszonesek[i]);
         }
+        System.out.println(koszonesek[i]);
         
     }
     static void rndkosz(String nev, int kor){
@@ -61,4 +64,5 @@ public class SzemelyStatisztika {
             kosz(nev);
         }
     }
+    
 }
