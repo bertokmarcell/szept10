@@ -4,17 +4,18 @@ package haromszog;
 import java.util.Random;
 
 public class SzemelyStatisztika {
-    static Random rnd;
+    
     public static void main(String[] args) {
-        String nev="jani";
-        int szulev=2004;
-        if(!korell(eletkor(szulev))){
+        //String nev="jani";
+        //int szulev=2004;
+        Személy newborn = new Személy(40, "cfffjjfcjcghgjjgvkjhkhhkhkj");
+        if(!korell(eletkor(newborn.getKor()))){
             throw new IllegalArgumentException("hibas");
         }
-        if(!nevell(nev)){
+        if(!nevell(newborn.getNev())){
             throw new IllegalArgumentException("hibas");
         }
-        bemut(eletkor(szulev), nev);
+        bemut(eletkor(newborn.getKor()), newborn.getNev());
     }
     //túlterhelés köszönéssel
     static String kosz(String nev){
@@ -54,15 +55,8 @@ public class SzemelyStatisztika {
         System.out.println(koszonesek[i]);
         
     }
-    static void rndkosz(String nev, int kor){
-        int r=rnd.nextInt(3);
-        if(r>0){
-            kosz(nev,kor);
-        }else if(r==2){
-            kosz(kor);
-        }else{
-            kosz(nev);
-        }
-    }
+    // személy, statisztika
+    //személy- név kor(priv) const, gett sett,
+    //stat- kosz, nyugi, eletkor
     
 }
