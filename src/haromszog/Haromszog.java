@@ -1,5 +1,8 @@
 package haromszog;
 
+import java.nio.file.Files;
+import java.nio.file.Path;
+
 public class Haromszog {
 
     public static void main(String[] args) {
@@ -10,6 +13,7 @@ public class Haromszog {
         double t= ter(oldala, oldalb, oldalc);
         String adat="A %d,%d,%d oldalú háromszög".formatted(oldala,oldalb,oldalc);
         adat+="\tkerülete:%d, területe:%.3f".formatted(k,t);
+        megjelen(adat);
         
     }
     public static int ker(int a,int b,int c){
@@ -24,8 +28,14 @@ public class Haromszog {
         System.out.println(szov+" ");
         System.out.print(b);
     }
-    public static void megjelen(){
-    //-Dstout.encoding
+    public static void megjelen(String adat){
+        try {
+            Files.write(Path.of("kimenet.txt"), adat.getBytes());
+        } catch (Exception ex) {
+            System.err.println("nem sikerült a fileba íras");
+            System.err.println("hiba oka"+ex.getMessage());
+        }
+     
     }
     
 }
