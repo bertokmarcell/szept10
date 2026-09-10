@@ -24,6 +24,10 @@ public class Haromszog {
         double terulet= Math.sqrt(s*(s-a)*(s-b)*(s-c));
         return terulet;
     }
+    public static double tersimp(int mag, int oldal){
+        double s = mag*oldal/2;
+        return s;
+    }
     public static void kiir(String szov,double b){
         System.out.println(szov+" ");
         System.out.print(b);
